@@ -2,7 +2,9 @@
 
 """Base Module"""
 
+
 import uuid
+from model import storage
 from datetime import datetime
 
 
@@ -42,15 +44,16 @@ class BaseModel:
         With the current datetime
         """
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """
         :return: a dictionary containing all
         the key value pairs
         """
-        class_name = self.__class__.__name__
-        instance_dict = {key: value for key, value in vars(self).items()}
-        instance_dict["__class__"] = class_name
-        instance_dict["created_at"] = datetime.isoformat(self.created_at)
-        instance_dict["updated_at"] = datetime.isoformat(self.updated_at)
-        return instance_dict
+        dict = {**self.__dict__}
+        dict['__class__'] = type(self).__name__
+        dict['created_at'] = dict['created_at'].isoformat()
+        dict['updated_at'] = dict['updated_at'].isoformat()
+
+        return dict
