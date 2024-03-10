@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+The FileStorage Module
+"""
 import os
 import json
 from models.base_model import BaseModel
@@ -54,20 +56,24 @@ class FileStorage:
         """
         deserializes the JSON file to __objects
         """
-        all_classes = {
-                "BaseModel": BaseModel,
-                "User": User,
-                "State": State,
-                "City": City,
-                "Amenity": Amenity,
-                "Place": Place,
-                "Review": Review,
-        }
-        if os.path.isfile(self.__file_path):
-            with open(self.__file_path, 'r') as f:
-                obj_dict = json.load(f)
-                for key, value in obj_dict.items():
-                    name = key.split(".")[0]
-                    if name in all_classes:
-                        obj = all_classes[name](**value)
-                        self.__objects[key] = obj
+        current_classes = {'BaseModel': BaseModel, 'User': User,
+                           'Amenity': Amenity, 'City': City, 'State': State,
+                           'Place': Place, 'Review': Review}
+
+        if not os.path.exists(self.__file_path):
+            return
+
+        with open(self.__file_path, 'r') as f:
+            deserialized = None
+
+            try:
+                deserialized = json.load(f)
+            except json.JSONDecodeError:
+                pass
+
+            if deserialized is None:
+                return
+
+            self.__objects = {
+                k: current_classes[k.split('.')[0]](**v)
+                for k, v in deserialized.items()}
