@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 
+from os import path
 import json
 """
 a class FileStorage that serializes
@@ -9,12 +10,11 @@ JSON file to instances
 """
 
 
-class FileStorage:
+class FileStorage():
     """
     class  that serializes instances to a Json
     file and deserializes Json file to instances
     """
-
     __file_path = "file.json"
     __object = {}
 
@@ -22,26 +22,33 @@ class FileStorage:
         """
         :return: dictionary __object
         """
-        return  FileStorage.__object
+        return self.__object
 
     def new(self, obj):
-        key = "{}.{}".format(type(type(obj).__name__, obj.id)
+        """
+        sets in __objects the obj
+        with key <obj class name>.id
+        """
+        key = "{}.{}".format(type(obj).__name__, obj.id)
 
     def save(self):
         """
         Serialization
         :return: nothing
         """
-        with open(self.__file_path, 'w') as file:
-            json.dump(self.__object, file)
+        f = open(self.__file_path, 'w')
+        json.dump(self.__object, f)
+        f.close()
 
     def reload(self):
         """
-        Deserialization
-        :return:
+        deserializes the JSON file to __objects
         """
-        if self.__file_path:
-            with open(Self.__file_path, 'r'):
-                self.__object = json.load(self.__file_path)
-        else:
+        try:
+            with open(FileStorage.__file_path, 'r') as f:
+                dict = json.loads(f.read())
+                for value in dict.values():
+                    cls = value["__class__"]
+                    self.new(eval(cls)(**value))
+        except Exception:
             pass
