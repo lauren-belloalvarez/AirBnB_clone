@@ -3,6 +3,8 @@
 
 from os import path
 import json
+from models.base_model import BaseModel
+
 """
 a class FileStorage that serializes
 instances to a JSON file and deserializes
@@ -16,13 +18,13 @@ class FileStorage():
     file and deserializes Json file to instances
     """
     __file_path = "file.json"
-    __object = {}
+    __objects = {}
 
     def all(self):
         """
         :return: dictionary __object
         """
-        return self.__object
+        return self.__objects
 
     def new(self, obj):
         """
@@ -30,25 +32,27 @@ class FileStorage():
         with key <obj class name>.id
         """
         key = "{}.{}".format(type(obj).__name__, obj.id)
+        self.__objects[key] = obj
 
     def save(self):
         """
         Serialization
         :return: nothing
         """
-        f = open(self.__file_path, 'w')
-        json.dump(self.__object, f)
-        f.close()
+        with open(self.__file_path, 'w', encoding='utf-8') as file:
+            serialized_objects = {}
+            for key, obj in self.__objects.items():
+                serialized_objects[key] = obj.to_dict()
+            json.dump(serialized_objects, file)
 
     def reload(self):
         """
         deserializes the JSON file to __objects
         """
-        try:
-            with open(FileStorage.__file_path, 'r') as f:
-                dict = json.loads(f.read())
-                for value in dict.values():
-                    cls = value["__class__"]
-                    self.new(eval(cls)(**value))
-        except Exception:
-            pass
+        if path.exists(self.__file_path):
+            with open(self.__file_path, 'r', encoding='utf-8') as file:
+                data = json.load(file)
+                for key, value in data.items():
+                    class_name, obj_id = key.split('.')
+                    obj = globals()[class_name](**value)
+                    self.__objects[key] = obj

@@ -4,8 +4,8 @@
 
 
 import uuid
-from models import storage
 from datetime import datetime
+import models
 
 
 class BaseModel():
@@ -31,16 +31,15 @@ class BaseModel():
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
-        storage.new(self)
+        model.storage.new(self)
 
     def __str__(self):
         """
         :return: string representation of the
         instance
         """
-        return "[{}] ({}) {}".format(
-                type(self).__name__, self.id, self.__dict__)
-
+        return "[{}] ({}) {}".format(__class__.__name__,
+                self.id, self.__dict__)
     def save(self):
         """
         Method to update the public instance attribute
@@ -48,7 +47,7 @@ class BaseModel():
                 With the current datetime
         """
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """
