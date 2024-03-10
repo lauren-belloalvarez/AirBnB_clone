@@ -3,6 +3,12 @@
 import os
 import json
 from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 
 """
 a class FileStorage that serializes
@@ -49,7 +55,13 @@ class FileStorage:
         deserializes the JSON file to __objects
         """
         all_classes = {
-                "BaseModel": BaseModel
+                "BaseModel": BaseModel,
+                "User": User,
+                "State": State,
+                "City": City,
+                "Amenity": Amenity,
+                "Place": Place,
+                "Review": Review,
         }
         if os.path.isfile(self.__file_path):
             with open(self.__file_path, 'r') as f:
