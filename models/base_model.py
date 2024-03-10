@@ -52,12 +52,9 @@ class BaseModel():
         :return: a dictionary containing all
         the key value pairs
         """
-        instance_dict = {
-                "my_number": getattr(self, "my_number", None),
-                "name": getattr(self, "name", None),
-                "__class__": self.__class__.__name__,
-                "updated_at": self.updated_at.isoformat(),
-                "id": self.id,
-                "created_at": self.created_at.isoformat()
-        }
-        return instance_dict
+        dict = {**self.__dict__}
+        dict['__class__'] = type(self).__name__
+        dict['created_at'] = dict['created_at'].isoformat()
+        dict['updated_at'] = dict['updated_at'].isoformat()
+
+        return dict
