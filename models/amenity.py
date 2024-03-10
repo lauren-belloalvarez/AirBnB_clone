@@ -1,13 +1,16 @@
 #!/usr/bin/python3
-
+"""
+The Amenity module
+"""
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
-    """User class that inherits from BaseModel"""
+class Amenity(BaseModel):
+    """
+    A desired feature of a place
 
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    class Attributes:
+    name
+    """
 
+    name = ""
