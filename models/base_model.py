@@ -12,7 +12,7 @@ class BaseModel():
     a class BaseModel that defines all
     common attributes/methods for other classes
     """
-    
+
     def __init__(self, *args, **kwargs):
         """
         :param kwargs: holds all pass argument strings.
@@ -35,14 +35,15 @@ class BaseModel():
         :return: string representation of the
         instance
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id,
-                                     {"my_number": self.my_number,
-                                      "name": self.name,
-                                      "updated_at": self.updated_at,
-                                      "id": self.id,
-                                      "created_at": self.created_at}
-                                    )
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            {"my_number": self.my_number,
+             "name": self.name,
+             "updated_at": self.updated_at,
+             "id": self.id,
+             "created_at": self.created_at}
+        )
 
     def save(self):
         """
