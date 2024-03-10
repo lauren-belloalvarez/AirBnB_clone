@@ -31,6 +31,14 @@
         "name": null,
         "updated_at": "2024-03-10T10:53:23.246446"
     },
+    "BaseModel.be177513-d895-44a4-99fa-74b003b54d49": {
+        "__class__": "BaseModel",
+        "created_at": "2024-03-10T10:57:24.989890",
+        "id": "be177513-d895-44a4-99fa-74b003b54d49",
+        "my_number": 89,
+        "name": "My First Model",
+        "updated_at": "2024-03-10T10:57:24.989962"
+    },
     "BaseModel.ee49c413-023a-4b49-bd28-f2936c95460d": {
         "__class__": "BaseModel",
         "created_at": "2017-09-28T21:07:25.047372",
@@ -38,5 +46,61 @@
         "my_number": 89,
         "name": "My_First_Model",
         "updated_at": "2017-09-28T21:07:25.047381"
+    },
+    "User.0ff40680-108b-4c5f-b221-22aca14fc3e4": {
+        "__class__": "User",
+        "created_at": "2024-03-10T11:17:13.089750",
+        "id": "0ff40680-108b-4c5f-b221-22aca14fc3e4",
+        "my_number": null,
+        "name": null,
+        "updated_at": "2024-03-10T11:17:13.089760"
+    },
+    "User.4ae94255-6890-4d9b-a209-4e3e900b5792": {
+        "__class__": "User",
+        "created_at": "2024-03-10T11:03:36.391146",
+        "id": "4ae94255-6890-4d9b-a209-4e3e900b5792",
+        "my_number": null,
+        "name": null,
+        "updated_at": "2024-03-10T11:03:36.391157"
+    },
+    "User.798d85e9-5457-461d-b129-748fc79c073f": {
+        "__class__": "User",
+        "created_at": "2024-03-10T11:06:23.488975",
+        "id": "798d85e9-5457-461d-b129-748fc79c073f",
+        "my_number": null,
+        "name": null,
+        "updated_at": "2024-03-10T11:06:23.488986"
+    },
+    "User.9c272c51-5f77-4500-b9b4-0cb8bb70cb5c": {
+        "__class__": "User",
+        "created_at": "2024-03-10T11:17:45.494663",
+        "id": "9c272c51-5f77-4500-b9b4-0cb8bb70cb5c",
+        "my_number": null,
+        "name": null,
+        "updated_at": "2024-03-10T11:17:45.494671"
+    },
+    "User.b7bdeee1-2941-49c0-8c01-adfee19687c4": {
+        "__class__": "User",
+        "created_at": "2024-03-10T10:55:38.490166",
+        "id": "b7bdeee1-2941-49c0-8c01-adfee19687c4",
+        "my_number": null,
+        "name": null,
+        "updated_at": "2024-03-10T10:55:38.490178"
+    },
+    "User.d6c69b95-eaf6-4427-acf2-b96d7e3370fd": {
+        "__class__": "User",
+        "created_at": "2024-03-10T11:17:13.089184",
+        "id": "d6c69b95-eaf6-4427-acf2-b96d7e3370fd",
+        "my_number": null,
+        "name": null,
+        "updated_at": "2024-03-10T11:17:13.089195"
+    },
+    "User.f124ba57-d97b-43aa-8852-00db0403b4fd": {
+        "__class__": "User",
+        "created_at": "2024-03-10T11:17:45.494031",
+        "id": "f124ba57-d97b-43aa-8852-00db0403b4fd",
+        "my_number": null,
+        "name": null,
+        "updated_at": "2024-03-10T11:17:45.494043"
     }
 }
