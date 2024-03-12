@@ -5,7 +5,7 @@ import cmd
 import re
 import sys
 
-from models.__init__ import storage
+from models import storage
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
