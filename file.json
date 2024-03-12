@@ -7,6 +7,12 @@
         "name": "My First Model",
         "updated_at": "2024-03-10T14:38:46.793758"
     },
+    "BaseModel.13e5ff3d-cb4f-4aa2-9bec-f75ffa7da63c": {
+        "__class__": "BaseModel",
+        "created_at": "2024-03-11T17:57:33.187836",
+        "id": "13e5ff3d-cb4f-4aa2-9bec-f75ffa7da63c",
+        "updated_at": "2024-03-11T17:57:33.187846"
+    },
     "BaseModel.1d879258-3814-44d1-a161-440e8cc1ce73": {
         "__class__": "BaseModel",
         "created_at": "2024-03-10T10:52:56.563270",
@@ -15,6 +21,12 @@
         "name": null,
         "updated_at": "2024-03-10T10:52:56.563287"
     },
+    "BaseModel.258d4770-f062-44ba-9400-211f8447f4f8": {
+        "__class__": "BaseModel",
+        "created_at": "2024-03-11T17:58:16.993135",
+        "id": "258d4770-f062-44ba-9400-211f8447f4f8",
+        "updated_at": "2024-03-11T17:58:17.086277"
+    },
     "BaseModel.3282a25e-6f20-46c5-998a-3aa38be7f60a": {
         "__class__": "BaseModel",
         "created_at": "2024-03-10T05:41:42.307249",
@@ -22,6 +34,18 @@
         "my_number": null,
         "name": null,
         "updated_at": "2024-03-10T05:41:42.307268"
+    },
+    "BaseModel.56559242-f5fe-429f-bb9c-ce5a701b995d": {
+        "__class__": "BaseModel",
+        "created_at": "2024-03-11T17:55:10.185953",
+        "id": "56559242-f5fe-429f-bb9c-ce5a701b995d",
+        "updated_at": "2024-03-11T17:55:10.185966"
+    },
+    "BaseModel.742d1a5f-5eb6-44fc-9fa0-7deea8eec4ab": {
+        "__class__": "BaseModel",
+        "created_at": "2024-03-11T17:54:58.690756",
+        "id": "742d1a5f-5eb6-44fc-9fa0-7deea8eec4ab",
+        "updated_at": "2024-03-11T17:54:58.690762"
     },
     "BaseModel.9976306c-4be4-4979-a3cc-42c96326411c": {
         "__class__": "BaseModel",
@@ -46,6 +70,12 @@
         "my_number": 89,
         "name": "My First Model",
         "updated_at": "2024-03-10T10:57:24.989962"
+    },
+    "BaseModel.e24c55d7-e67f-457f-8207-139629556403": {
+        "__class__": "BaseModel",
+        "created_at": "2024-03-11T17:58:57.790366",
+        "id": "e24c55d7-e67f-457f-8207-139629556403",
+        "updated_at": "2024-03-11T17:58:57.790374"
     },
     "BaseModel.ee49c413-023a-4b49-bd28-f2936c95460d": {
         "__class__": "BaseModel",
