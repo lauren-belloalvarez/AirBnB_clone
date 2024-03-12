@@ -8,7 +8,7 @@ from models.place import Place
 
 class TestingPlace(unittest.TestCase):
 
-    def TestingPlaceAttributes(self):
+    def test_place_attributes(self):
         # Testing if the attributes are same
         place = Place()
         self.assertEqual(Place.city_id, "")
