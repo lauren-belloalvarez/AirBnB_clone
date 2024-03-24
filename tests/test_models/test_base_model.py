@@ -1,55 +1,46 @@
 #!/usr/bin/python3
-
 """
-Test suits for the base model
+Unittest for base module
 """
-
-import os
-import re
-import json
-import uuid
 import unittest
-from time import sleep
 from datetime import datetime
 from models.base_model import BaseModel
+from models import engine
+from models import storage
 
 
 class TestBaseModel(unittest.TestCase):
-    """
-    Tests attributes of the base model
-    """
 
     def setUp(self):
-        """
-        Classes needed for testing
-        """
-        pass
+        # Initialize the storage engine before each test
+        engine.storage = storage
 
-    def test_basic(self):
-        """
-        Tests basic inputs for the BaseModel class
-        :return: nothing
-        """
-        my_model = BaseModel()
-        my_model.name = "ALX"
-        my_model.number = 89
-        self.assertEqual([my_model.name, my_model.number],
-                         ["ALX", 89])
+    def test_str_method(self):
+        # Test if the __str__ method returns
+        # the expected string representation
+        model = BaseModel()
+        expected_str = "[BaseModel] ({}) {}".format(model.id, model.__dict__)
+        self.assertEqual(str(model), expected_str)
 
-    def test_datetime(self):
-        """
-        Tests for correct datetime format
-        :return: nothing
-        """
-        pass
+    def test_save_method(self):
+        # Test if the save method updates the 'updated_at'
+        # attribute and calls storage.save()
+        model = BaseModel()
+        old_updated_at = model.updated_at
+        model.save()
+        self.assertNotEqual(old_updated_at, model.updated_at)
+        # self.assertTrue(model.save())
 
-    def test_datetime(self):
-        """
-        Tests for correct datetime format
-        :return: nothing just test
-        """
-        pass
+    def test_to_dict_method(self):
+        # Test if the to_dict method returns a dictionary
+        # with expected key-value pairs
+        model = BaseModel()
+        Model_dict = model.to_dict()
+        self.assertIsInstance(Model_dict, dict)
+        self.assertEqual(Model_dict["__class__"], "BaseModel")
+        self.assertEqual(Model_dict["id"], model.id)
+        self.assertEqual(Model_dict["created_at"], model.created_at.isoformat())
+        self.assertEqual(Model_dict["updated_at"], model.updated_at.isoformat())
 
-
-if __name__ == '__main__':
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()

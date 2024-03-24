@@ -37,13 +37,7 @@ class BaseModel():
         """
         return "[{}] ({}) {}".format(
             self.__class__.__name__,
-            self.id,
-            {"my_number": self.my_number,
-             "name": self.name,
-             "updated_at": self.updated_at,
-             "id": self.id,
-             "created_at": self.created_at}
-        )
+            self.id, self.__dict__)
 
     def save(self):
         """
@@ -58,12 +52,8 @@ class BaseModel():
         :return: a dictionary containing all
         the key value pairs
         """
-        instance_dict = {
-                "my_number": getattr(self, "my_number", None),
-                "name": getattr(self, "name", None),
-                "__class__": self.__class__.__name__,
-                "updated_at": self.updated_at.isoformat(),
-                "id": self.id,
-                "created_at": self.created_at.isoformat()
-        }
-        return instance_dict
+        rdict = self.__dict__.copy()
+        rdict["created_at"] = self.created_at.isoformat()
+        rdict["updated_at"] = self.updated_at.isoformat()
+        rdict["__class__"] = self.__class__.__name__
+        return rdict
